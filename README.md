@@ -1,50 +1,9 @@
-# Welcome to your Expo app 👋
+# React Native Maps Double-Select Bug
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+When pressing a marker that is near another marker, the callout for the marker that was actually pressed will appear, then about a second later, the correct marker's callout will dismiss and the second marker's callout will appear.
 
-## Get started
+See [demo](./demo.mov).
 
-1. Install dependencies
+As can be seen in the logs, `onMarkerPress` correctly fires once, as there is only one press. `onMarkerSelect` incorrectly fires twice. Calling `preventDefault` and `stopPropagation` on the press event has no impact, and as far as I can tell none of the event handlers provide any means of canceling the event. I have also tried hacks like updating state on the first `onSelect` event such that all other markers' `title` and `description` gets nullified. This also has on effect. I believe all the `onSelect` calls happen in nativeland.
 
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This is a brand new Expo project. The only relevant code is in [`./app/index.tsx`](./app/index.tsx)
