@@ -2,8 +2,7 @@
 
 When pressing a marker that is near another marker, the callout for the marker that was actually pressed will appear, then about a second later, the correct marker's callout will dismiss and the second marker's callout will appear.
 
-See [demo](./demo.mov).
-https://github.com/user-attachments/assets/b82d6bed-b7fe-4003-9280-761d2f78119d
+See [demo](https://github.com/user-attachments/assets/b82d6bed-b7fe-4003-9280-761d2f78119d) at [./demo.mov](./demo.mov).
 
 
 
